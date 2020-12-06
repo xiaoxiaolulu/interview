@@ -40,3 +40,20 @@ with open('test', 'r', encoding='utf-8') as stream:
 
 for content_value in pattern_set:
     print(content_value.strip())
+
+
+# 统计字符串里的字母个数怎么测试？
+# 可以通过字符在ASCII码表里有序号一一对应来判断，就不用写太多if判断了
+# a~z小写英文字母的取值范围为97~122
+# A~Z大写英文字母的取值范围为65~90
+def numbercharacters(sstr):
+    characters = []
+    others = []
+    for i in range(len(sstr)):
+        if ord(sstr[i]) in range(65, 91) or ord(sstr[i]) in range(97, 123):
+            characters.append(sstr[i])
+        else:
+            others.append(sstr[i])
+    return len(characters)
+
+print("The number of characters is " + str(numbercharacters("abc12,/'io")))
